@@ -1,0 +1,4 @@
+- hosts: all
+become : yes
+tasks: 
+- debug: msg="05 is {{ os_family }}"

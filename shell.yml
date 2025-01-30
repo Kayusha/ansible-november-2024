@@ -1,0 +1,5 @@
+- hosts: all
+become : yes
+tasks: 
+  - name: install apache
+  ansible.builtin.shell: apt install apache -y 

@@ -1,0 +1,27 @@
+-hosts: all
+ become: yes
+ 
+   
+  ansible.builtin.apt:
+      name: apache2
+      state: present
+      update_cache: yes
+
+   
+
+
+- name: Start apache 
+        ansible.builtin.service:
+    name: unzip
+    state: started
+    enabled: yes
+
+    - name: install tree
+        ansible.builtin.service:
+    name: apache2
+    notify: Start apache
+
+    handlers: 
+
+    state: restarted
+    enabled: yes
