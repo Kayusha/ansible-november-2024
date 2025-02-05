@@ -20,4 +20,3 @@ module "ec2_instance" {
   instance_type = "t2.micro"
   instance_name = "web-server"
   aws_region    = "us-west-2"
-}
