@@ -1,0 +1,10 @@
+ ansible.builtin.service:
+    name: mysql
+    state: started
+    enabled: yes
+    enabled: yes
+- name: Create a new database
+  community.mysql.mysql_db:
+    name: kaizen
+    state: present
+    
