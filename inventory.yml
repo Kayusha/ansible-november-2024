@@ -1,0 +1,24 @@
+all:
+  hosts:
+    web1:
+      ansible_host: <VM1_IP>
+    web2:
+      ansible_host: <VM2_IP>
+    web3:
+      ansible_host: <VM3_IP>
+  vars:
+    ansible_user: ec2-user
+    ansible_ssh_private_key_file: ~/.ssh/ansible-key
+
+  all: -i inventory.yml -m ping
+
+
+  all: -i inventory.yml -m shell -a "cat /etc/passwd | grep -E 'jenny|rose|jisoo|lisa'"
+
+  all:  -i inventory.yml -m shell -a "systemctl status httpd"
+
+  all:  -i inventory.yml -m shell -a "cat /etc/passwd | grep -E 'jenny|rose|jisoo|lisa'"
+  
+
+
+

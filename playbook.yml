@@ -1,0 +1,39 @@
+---
+- name: Configure Web Servers
+  hosts: all
+  become: yes
+  
+  vars:
+    users:
+      - jenny
+      - rose
+      - jisoo
+      - lisa
+
+  tasks:
+    - name: Update all packages
+      yum:
+        name: '*'
+        state: latest
+        update_only: yes
+
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Start Apache service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Create users
+      user:
+        name: "{{ item }}"
+        state: present
+        create_home: yes
+      loop: "{{ users }}"s
+
+      ansible-playbook -i inventory.yml playbook.yml
+      
